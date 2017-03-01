@@ -59,5 +59,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>consumerKey</key>
+	<string>ToAJ5WTnje0AFjUBUfP8sKZX0</string>
+	<key>consumerSecret</key>
+	<string>DCisUh5dIlJuijszdXXgozvTNBClOzVV7mwhfu8IlhXN2Ac21L</string>
 </dict>
 </plist>
