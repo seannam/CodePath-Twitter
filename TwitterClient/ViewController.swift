@@ -20,6 +20,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    //var loginSuccess:(()-> ())?
+    // var loginFailure: ((Error) ->())?
+    /*
+    func login(success: Success: @escaping()->(), failure: @escaping(Error)->()) {
+        loginSuccess = success
+        loginFailure = failure
+        
+        deauthorize()
+    }
+ */
+    
 
 }
 
