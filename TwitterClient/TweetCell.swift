@@ -7,26 +7,29 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var timePostedLabel: UILabel!
+    @IBOutlet weak var tweetLabel: UILabel!
+    
     var tweet: Tweet! {
         didSet {
+            print("[DEBUG] TweetCell Class")
             
-//            
-//            if let thumbnailURL = business.imageURL {
-//                self.thumbImageView.setImageWith(thumbnailURL)
-//            }
-//            if let ratingsURL = business.ratingImageURL {
-//                self.ratingsImageView.setImageWith(ratingsURL)
-//            }
-//            
-//            nameLabel.text = business.name
-//            distanceLabel.text = business.distance
-//            reviewCountLabel.text = "\(business.reviewCount!) Reviews"
-//            addressLabel.text = business.address
-//            categoriesLabel.text = business.categories
-//            
+            if let profileImageUrl = tweet?.profileImageLink {
+                self.profileImageView.setImageWith(profileImageUrl)
+            }
+            
+            self.nameLabel.text = tweet?.name
+            self.usernameLabel.text = tweet?.screenname
+            self.timePostedLabel.text = "\(tweet?.timestamp)"
+            self.tweetLabel.text = tweet?.text
+            
         }
     }
     

@@ -29,7 +29,6 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             
         }) { (error:Error?) -> Void in
-            print("LoginViewController")
             print("error: \(error?.localizedDescription)")
             self.loginFailure?(error!)
         }
@@ -58,17 +57,17 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     func currentAccount() {
         get("1.1/account/verify_credentials.json", parameters:nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
-            print("account: \(response)")
+            //print("account: \(response)")
             
             let userDictionary = response as! NSDictionary
             
             let user = User(dictionary: userDictionary)
-            
+            /*
             print("name: \(user.name)")
             print("screename: \(user.screenname)")
             print("profile url: \(user.profileUrl)")
             print("description: \(user.tagline)")
-            
+            */
             
         }) { (task: URLSessionDataTask?, error: Error) -> Void in
             
@@ -86,9 +85,10 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             success(tweets)
             
-            for tweet in tweets {
-                print("\(tweet.text)!")
-            }
+            print("[DEBUG] \(tweets)")
+//            for tweet in tweets {
+//                print("\(tweet.text)!")
+//            }
             
             
         }) { (task: URLSessionDataTask?, error: Error) -> Void in

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,12 +17,21 @@ class TweetsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         TwitterClient.sharedInstance?.homeTimeLine(success: { (tweets:[Tweet]) in
-            self.tweets = tweets
             
+            self.tweets = tweets
+            print("[DEBUG] Tweet count: \(tweets.count)")
+            
+            self.tableView.reloadData()
+            print("[DEBUG] TweetsViewController: success")
+            /*
             for tweet in tweets {
                 print(tweet.text!)
             }
+            */
         }) {(error:Error) -> () in
             print(error.localizedDescription)
         }
@@ -34,17 +43,25 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath as IndexPath) as! TweetCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("[DEBUG] TweetsViewController: cellForRowAt")
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         cell.tweet = tweets[indexPath.row]
+        
+        print(indexPath)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection numOfRowsInSection: Int) -> Int {
+        print("[DEBUG] TweetsViewController: numberOfRowsInSection")
         
-        return self.tweets.count
+        let count = self.tweets?.count ?? 0
+        
+        print("\(count)")
+        
+        return count
     }
 
     /*

@@ -15,6 +15,8 @@ class User: NSObject {
     var profileUrl: URL?
     var tagline: String?
     
+    var dictionary: NSDictionary?
+    
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
@@ -26,4 +28,24 @@ class User: NSObject {
         
         tagline = dictionary["description"] as? String
     }
+    
+    class var currentUser: User? {
+        get {
+            let defaults = UserDefaults.standard
+            
+            let user = defaults.object(forKey: "currentUser")
+            
+            return user
+        }
+        
+        set(user) {
+            let defaults = UserDefaults.standard
+            
+            defaults.set(user, forKey: "currentUser")
+            
+            defaults.synchronize()
+            
+        }
+    }
+    
 }

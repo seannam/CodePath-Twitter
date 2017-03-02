@@ -6,7 +6,7 @@ target 'TwitterClient' do
   use_frameworks!
 
   # Pods for TwitterClient
-  #pod 'AFNetworking'
+  pod 'AFNetworking'
   pod 'BDBOAuth1Manager'
 
 end
