@@ -88,4 +88,46 @@ class TwitterClient: BDBOAuth1SessionManager {
             failure(error)
         }
     }
+    
+    func retweet(id: Int, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+        post("1.1/statuses/retweet/\(id).json", parameters: params, success: {(operation: URLSessionDataTask!, response: Any?) -> Void in
+            print("[DEBUG] retweeting with ID \(id)")
+            completion(nil)
+        }, failure: { (operation: URLSessionDataTask?, error: Error!) -> Void in
+            print("Error retweeting")
+            completion(error as Error?)
+        }
+        )
+    }
+    
+    func unretweet(id: Int, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+        post("1.1/statuses/unretweet/\(id).json", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+            print("[DEBUG] unretweeting with ID \(id)")
+            completion(nil)
+        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+            print("[DEBUG] Error unretweeting")
+            completion(error as Error?)
+        }
+        )
+    }
+    
+    func favourite(id: Int, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+        post("1.1/favorites/create.json?id=\(id)", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+            print("[DEBUG] favourited tweet with id: \(id)")
+            completion(nil)
+        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+            print("[DEBUG] Error favouriting tweet with id: \(id)")
+            completion(error as Error?)
+        })
+    }
+    
+    func unfavourite(id: Int, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+        post("1.1/favorites/destroy.json?id=\(id)", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+            print("[DEBUG] unfavourite tweet with id: \(id)")
+            completion(nil)
+        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+            print("[DEBUG] Error unfavouriting tweet with id: \(id)")
+            completion(error as Error?)
+        })
+    }
 }

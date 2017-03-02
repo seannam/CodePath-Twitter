@@ -18,6 +18,8 @@ class User: NSObject {
     var dictionary: NSDictionary?
     
     init(dictionary: NSDictionary) {
+        self.dictionary = dictionary
+
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
         

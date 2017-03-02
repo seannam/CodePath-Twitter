@@ -16,20 +16,29 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timePostedLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
+    @IBOutlet weak var favouriteCountLabel: UILabel!
+    
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favouriteButton: UIButton!
+    
     
     var tweet: Tweet! {
         didSet {
-            print("[DEBUG] TweetCell Class")
             
-            if let profileImageUrl = tweet?.profileImageLink {
+            if let profileImageUrl = tweet?.user?.profileUrl {
                 self.profileImageView.setImageWith(profileImageUrl)
             }
             
-            self.nameLabel.text = tweet?.name
-            self.usernameLabel.text = tweet?.screenname
-            self.timePostedLabel.text = "\(tweet?.timestamp)"
-            self.tweetLabel.text = tweet?.text
+            self.nameLabel.text = tweet.user?.name!
+            self.usernameLabel.text = ("@\(tweet.user!.screenname!)")
+            //self.timePostedLabel.text = "\(tweet?.timestamp!)"
+            self.tweetLabel.text = tweet?.text!
             
+
+            self.retweetCountLabel.text = String(tweet.retweetCount)
+
+            self.favouriteCountLabel.text = String(tweet.favoritesCount)
         }
     }
     

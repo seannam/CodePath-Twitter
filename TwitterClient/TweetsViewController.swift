@@ -23,10 +23,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         TwitterClient.sharedInstance?.homeTimeLine(success: { (tweets:[Tweet]) in
             
             self.tweets = tweets
-            print("[DEBUG] Tweet count: \(tweets.count)")
-            
             self.tableView.reloadData()
-            print("[DEBUG] TweetsViewController: success")
             /*
             for tweet in tweets {
                 print(tweet.text!)
@@ -44,29 +41,81 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("[DEBUG] TweetsViewController: cellForRowAt")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        //cell.tweet = tweets[indexPath.row]
-
-        let tweet = tweets[indexPath.row]
-        cell.nameLabel.text = tweet.name
         
-        print(indexPath)
+        let tweet = tweets[indexPath.row]
+        
+        cell.tweet = tweet
+        
+        if tweet.retweeted {
+            cell.retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: UIControlState())
+        } else {
+            cell.retweetButton.setImage(UIImage(named: "retweet-icon"), for: UIControlState())
+        }
+        if tweet.favourited  {
+            cell.favouriteButton.setImage(UIImage(named: "favor-icon-red"), for: UIControlState())
+        } else {
+            cell.favouriteButton.setImage(UIImage(named: "favor-icon"), for: UIControlState())
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection numOfRowsInSection: Int) -> Int {
-        print("[DEBUG] TweetsViewController: numberOfRowsInSection")
         
         let count = self.tweets?.count ?? 0
-        
-        print("\(count)")
         
         return count
     }
 
+    @IBAction func onRetweet(_ sender: AnyObject) {
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! TweetCell
+        let indexPath = tableView.indexPath(for: cell)
+        let tweet = tweets![indexPath!.row]
+        let path = tweet.id
+        
+        if tweet.retweeted == false {
+            TwitterClient.sharedInstance!.retweet(id: path, params: nil) { (error) -> () in
+                self.tweets![indexPath!.row].retweetCount += 1
+                tweet.retweeted = true
+                self.tableView.reloadData()
+            }
+        } else if tweet.retweeted == true {
+            TwitterClient.sharedInstance!.unretweet(id: path, params: nil, completion: { (error) -> () in
+                self.tweets![indexPath!.row].retweetCount -= 1
+                tweet.retweeted = false
+                self.tableView.reloadData()
+            })
+        }
+        
+    }
+    
+    @IBAction func onFavorite(_ sender: AnyObject) {
+        let button = sender as! UIButton
+        let view = button.superview!
+        let cell = view.superview as! TweetCell
+        
+        let indexPath = tableView.indexPath(for: cell)
+        let tweet = tweets![indexPath!.row]
+        
+        let path = tweet.id
+        if tweet.favourited == false {
+            TwitterClient.sharedInstance!.favourite(id: path, params: nil) { (error) -> () in
+                self.tweets![indexPath!.row].favoritesCount += 1
+                tweet.favourited = true
+                self.tableView.reloadData()
+            }
+        } else if tweet.favourited == true {
+            TwitterClient.sharedInstance!.favourite(id: path, params: nil, completion:  { (error) -> () in
+                self.tweets![indexPath!.row].favoritesCount -= 1
+                tweet.favourited = false
+                self.tableView.reloadData()
+            })
+        }
+    }
     /*
     // MARK: - Navigation
 

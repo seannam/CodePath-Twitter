@@ -10,21 +10,30 @@ import UIKit
 
 class Tweet: NSObject {
     
-    var name: String?
-    var screenname: String?
+    var user: User?
+    
     var text: String?
     var timestamp: Date?
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
-    var profileImageLink: URL?
+    
+    var retweeted: Bool
+    var favourited: Bool
+    
+    var id: Int
     
     init(dictionary: NSDictionary) {
-        text = dictionary["text"] as? String
-        name = dictionary["name"] as? String
-        screenname = dictionary["screen_name"] as? String
+        user = User(dictionary: dictionary["user"] as! NSDictionary)
         
+        text = dictionary["text"] as? String
+        
+        retweeted = dictionary["retweeted"] as! Bool
         retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
+
+        favourited = dictionary["favorited"] as! Bool
         favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
+        
+        id = dictionary["id"] as! Int
         
         let timestampString = dictionary["created_at"] as? String
         
@@ -34,9 +43,6 @@ class Tweet: NSObject {
             timestamp = formatter.date(from: timestampString)
         }
         
-        if let profileImageAsString = dictionary["profile_image_url"] as? String {
-            profileImageLink = URL(string: profileImageAsString)
-        }
     }
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {
@@ -44,6 +50,7 @@ class Tweet: NSObject {
         
         for dictionary in dictionaries {
             let tweet = Tweet(dictionary: dictionary)
+            tweets.append(tweet)
         }
         
         return tweets
