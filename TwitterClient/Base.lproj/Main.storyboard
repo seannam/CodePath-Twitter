@@ -47,7 +47,7 @@
         <!--Tweets View Controller-->
         <scene sceneID="np2-BN-9KV">
             <objects>
-                <viewController id="7n0-Wc-krr" customClass="TweetsViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="7n0-Wc-krr" customClass="TweetsViewController" customModule="TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mu8-8u-COw"/>
                         <viewControllerLayoutGuide type="bottom" id="3zn-wq-y0G"/>
@@ -65,7 +65,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vYb-QN-Eh6" id="ko6-1w-gz3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-zh-Knc">
@@ -157,6 +157,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Q1M-JM-vO7"/>
+        <segue reference="ZFv-d5-9sU"/>
     </inferredMetricsTieBreakers>
 </document>

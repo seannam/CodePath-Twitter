@@ -47,7 +47,10 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         print("[DEBUG] TweetsViewController: cellForRowAt")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        cell.tweet = tweets[indexPath.row]
+        //cell.tweet = tweets[indexPath.row]
+
+        let tweet = tweets[indexPath.row]
+        cell.nameLabel.text = tweet.name
         
         print(indexPath)
         
