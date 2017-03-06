@@ -69,6 +69,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return count
     }
 
+    @IBAction func onLogoutButton(_ sender: Any) {
+        TwitterClient.sharedInstance?.logout()
+    }
+    
+    
     @IBAction func onRetweet(_ sender: AnyObject) {
         let button = sender as! UIButton
         let view = button.superview!

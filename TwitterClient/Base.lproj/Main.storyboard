@@ -181,7 +181,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="gO2-uS-7Rz">
-                        <barButtonItem key="leftBarButtonItem" title="logout" id="VOd-Fs-hKc"/>
+                        <barButtonItem key="leftBarButtonItem" title="logout" id="VOd-Fs-hKc">
+                            <connections>
+                                <action selector="onLogoutButton:" destination="7n0-Wc-krr" id="b9G-Ng-mJp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="upd-IY-8eE" id="Rge-Ia-8DC"/>
@@ -194,7 +198,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xdv-MD-dfI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fb5-V3-nVv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TweetsNavController" automaticallyAdjustsScrollViewInsets="NO" id="fb5-V3-nVv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="5EG-st-ur2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GP7-kB-b2A">
