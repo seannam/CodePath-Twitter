@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C7D4C1811E5D907100F4829D"
-               BuildableName = "TwitterClient.app"
-               BlueprintName = "TwitterClient"
-               ReferencedContainer = "container:TwitterClient.xcodeproj">
+               BuildableName = "Birdhouse-TwitterClient.app"
+               BlueprintName = "Birdhouse-TwitterClient"
+               ReferencedContainer = "container:Birdhouse-TwitterClient.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7D4C1811E5D907100F4829D"
-            BuildableName = "TwitterClient.app"
-            BlueprintName = "TwitterClient"
-            ReferencedContainer = "container:TwitterClient.xcodeproj">
+            BuildableName = "Birdhouse-TwitterClient.app"
+            BlueprintName = "Birdhouse-TwitterClient"
+            ReferencedContainer = "container:Birdhouse-TwitterClient.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7D4C1811E5D907100F4829D"
-            BuildableName = "TwitterClient.app"
-            BlueprintName = "TwitterClient"
-            ReferencedContainer = "container:TwitterClient.xcodeproj">
+            BuildableName = "Birdhouse-TwitterClient.app"
+            BlueprintName = "Birdhouse-TwitterClient"
+            ReferencedContainer = "container:Birdhouse-TwitterClient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C7D4C1811E5D907100F4829D"
-            BuildableName = "TwitterClient.app"
-            BlueprintName = "TwitterClient"
-            ReferencedContainer = "container:TwitterClient.xcodeproj">
+            BuildableName = "Birdhouse-TwitterClient.app"
+            BlueprintName = "Birdhouse-TwitterClient"
+            ReferencedContainer = "container:Birdhouse-TwitterClient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

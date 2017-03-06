@@ -31,7 +31,7 @@
 		C723D9A71E66B489007D542C /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		C723D9A91E66BB3D007D542C /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		C723D9AC1E66BD1F007D542C /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
-		C7D4C1821E5D907200F4829D /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7D4C1821E5D907200F4829D /* Birdhouse-TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birdhouse-TwitterClient.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D4C1851E5D907200F4829D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7D4C1871E5D907200F4829D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7D4C18A1E5D907200F4829D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 		C7D4C1831E5D907200F4829D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7D4C1821E5D907200F4829D /* TwitterClient.app */,
+				C7D4C1821E5D907200F4829D /* Birdhouse-TwitterClient.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,9 +141,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7D4C1811E5D907100F4829D /* TwitterClient */ = {
+		C7D4C1811E5D907100F4829D /* Birdhouse-TwitterClient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7D4C1941E5D907300F4829D /* Build configuration list for PBXNativeTarget "TwitterClient" */;
+			buildConfigurationList = C7D4C1941E5D907300F4829D /* Build configuration list for PBXNativeTarget "Birdhouse-TwitterClient" */;
 			buildPhases = (
 				DA55BA8A69997E19EFDBC7B0 /* [CP] Check Pods Manifest.lock */,
 				C7D4C17E1E5D907100F4829D /* Sources */,
@@ -156,9 +156,9 @@
 			);
 			dependencies = (
 			);
-			name = TwitterClient;
+			name = "Birdhouse-TwitterClient";
 			productName = TwitterClient;
-			productReference = C7D4C1821E5D907200F4829D /* TwitterClient.app */;
+			productReference = C7D4C1821E5D907200F4829D /* Birdhouse-TwitterClient.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C7D4C17D1E5D907100F4829D /* Build configuration list for PBXProject "TwitterClient" */;
+			buildConfigurationList = C7D4C17D1E5D907100F4829D /* Build configuration list for PBXProject "Birdhouse-TwitterClient" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -190,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7D4C1811E5D907100F4829D /* TwitterClient */,
+				C7D4C1811E5D907100F4829D /* Birdhouse-TwitterClient */,
 			);
 		};
 /* End PBXProject section */
@@ -416,7 +416,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7D4C17D1E5D907100F4829D /* Build configuration list for PBXProject "TwitterClient" */ = {
+		C7D4C17D1E5D907100F4829D /* Build configuration list for PBXProject "Birdhouse-TwitterClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7D4C1921E5D907300F4829D /* Debug */,
@@ -425,7 +425,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7D4C1941E5D907300F4829D /* Build configuration list for PBXNativeTarget "TwitterClient" */ = {
+		C7D4C1941E5D907300F4829D /* Build configuration list for PBXNativeTarget "Birdhouse-TwitterClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C7D4C1951E5D907300F4829D /* Debug */,

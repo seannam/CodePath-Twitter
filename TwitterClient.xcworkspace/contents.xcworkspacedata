@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TwitterClient.xcodeproj">
+      location = "group:/Users/seannam/Dropbox/!Projects/CodePath/Twitter/TwitterClient/Birdhouse-TwitterClient.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
