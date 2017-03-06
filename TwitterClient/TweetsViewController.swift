@@ -63,10 +63,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection numOfRowsInSection: Int) -> Int {
-        
-        let count = self.tweets?.count ?? 0
-        
-        return count
+        return self.tweets?.count ?? 0
     }
 
     @IBAction func onLogoutButton(_ sender: Any) {
@@ -121,14 +118,25 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             })
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TweetDetailsSegue" {
+            let cell = sender as! TweetCell
+            
+            let indexPath = tableView.indexPath(for: cell)
+            let tweet = self.tweets![(indexPath?.row)!]
+            
+            let detailsVC = segue.destination as! TweetsDetailsViewController
+            detailsVC.tweet = tweet
+            
+        }
+        
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

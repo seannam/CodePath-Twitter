@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nc = storyboard.instantiateViewController(withIdentifier: "TweetsNavController")
-            let vc = nc.childViewControllers.first as! TweetsViewController
+            //let vc = nc.childViewControllers.first as! TweetsViewController
             //let vc = storyboard.instantiateViewController(withIdentifier: "TweetsViewController")
             
             window?.rootViewController = nc

@@ -1,6 +1,6 @@
-# Project 4 - *Twitter*
+# Project 4 - *Birdhouse*
 
-**Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
+**Birdhouse** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
 Time spent: **6** hours spent in total
 
@@ -19,15 +19,6 @@ The following **optional** features are implemented:
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 - [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count.
 - [ ] User can pull to refresh.
-
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
-
-1. 
-2. 
 
 ## Video Walkthrough 
 
@@ -57,9 +48,9 @@ Describe any challenges encountered while building the app.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-# Project 5 - *Tweetly*
+# Project 5 - *Birdhouse*
 
-Time spent: **X** hours spent in total
+Time spent: **2** hours spent in total
 
 ## User Stories
 
@@ -74,6 +65,7 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
+- [x] Logout button allows user to logout and return to login screen.
 - [ ] When composing, you should have a countdown in the upper right for the tweet limit.
 - [ ] After creating a new tweet, a user should be able to view it in the timeline immediately without refetching the timeline from the network.
 - [ ] Profile Page
