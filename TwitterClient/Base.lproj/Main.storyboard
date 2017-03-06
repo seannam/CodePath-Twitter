@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -66,7 +67,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vYb-QN-Eh6" id="ko6-1w-gz3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="134.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-zh-Knc">
@@ -196,7 +197,7 @@
             </objects>
             <point key="canvasLocation" x="3003.75" y="130.98591549295776"/>
         </scene>
-        <!--Tweets Details View Controller-->
+        <!--Tweet-->
         <scene sceneID="nd5-1A-LhD">
             <objects>
                 <viewController id="nRp-xE-Kgq" customClass="TweetsDetailsViewController" customModule="Birdhouse_TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +218,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="218"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e5A-H0-JvB" id="kfJ-9e-r8J">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="217"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="218"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A4N-YO-C2E">
@@ -405,6 +406,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Tweet" id="GVc-7j-kcD">
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="zKA-cO-8wX"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ueY-zl-NB3" id="TYi-e8-527"/>
                     </connections>
@@ -412,6 +416,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrX-ZU-IXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4024" y="124"/>
+        </scene>
+        <!--Compose Tweet View Controller-->
+        <scene sceneID="UlN-VC-8P0">
+            <objects>
+                <viewController storyboardIdentifier="ComposeTweetViewController" id="j8h-I9-UQW" customClass="ComposeTweetViewController" customModule="Birdhouse_TwitterClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MNt-G9-JaI"/>
+                        <viewControllerLayoutGuide type="bottom" id="QH3-8U-QzF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="276-9G-Lm5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uhn-TP-9nJ">
+                                <rect key="frame" x="0.0" y="60" width="320" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="S2L-gW-Gs7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UuQ-Vq-5Ls">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="M2W-cO-1fG">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="k91-Lm-pHz">
+                                            <connections>
+                                                <action selector="onCancelButton:" destination="j8h-I9-UQW" id="XwT-MN-boR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Tweet" id="OVj-hJ-Kgh">
+                                                <connections>
+                                                    <action selector="onTweetButton:" destination="j8h-I9-UQW" id="uYs-uf-axE"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem enabled="NO" title="140" id="Lng-Dj-0MB"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uhn-TP-9nJ" secondAttribute="trailing" id="OSJ-qj-g48"/>
+                            <constraint firstItem="uhn-TP-9nJ" firstAttribute="leading" secondItem="276-9G-Lm5" secondAttribute="leading" id="dPu-CG-DpR"/>
+                            <constraint firstItem="uhn-TP-9nJ" firstAttribute="top" secondItem="MNt-G9-JaI" secondAttribute="bottom" constant="40" id="dmQ-xg-l56"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="characterCountLabelAsButton" destination="Lng-Dj-0MB" id="qns-CH-6eO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYA-pb-2Ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4820.625" y="123.59154929577466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xdv-MD-dfI">

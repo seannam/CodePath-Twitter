@@ -29,6 +29,11 @@ class TweetsDetailsViewController: UIViewController {
     }
     
     @IBAction func onReplyButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ComposeTweetViewController")
+        
+        present(vc, animated: true, completion: nil)
+        
     }
 
     

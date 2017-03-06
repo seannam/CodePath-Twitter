@@ -21,6 +21,7 @@
 		C7D4C18B1E5D907200F4829D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D4C1891E5D907200F4829D /* Main.storyboard */; };
 		C7D4C18D1E5D907300F4829D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D4C18C1E5D907300F4829D /* Assets.xcassets */; };
 		C7D4C1901E5D907300F4829D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7D4C18E1E5D907300F4829D /* LaunchScreen.storyboard */; };
+		C7F6C2301E6E188D00A2913B /* ComposeTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F6C22F1E6E188D00A2913B /* ComposeTweetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C7D4C18C1E5D907300F4829D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7D4C18F1E5D907300F4829D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7D4C1911E5D907300F4829D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F6C22F1E6E188D00A2913B /* ComposeTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTweetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				C723D99E1E6687F0007D542C /* LoginViewController.swift */,
 				C723D9A91E66BB3D007D542C /* TweetsViewController.swift */,
 				C72561081E6D54FF00AA8622 /* TweetsDetailsViewController.swift */,
+				C7F6C22F1E6E188D00A2913B /* ComposeTweetViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				C723D9AA1E66BB3D007D542C /* TweetsViewController.swift in Sources */,
 				C723D9A81E66B489007D542C /* TwitterClient.swift in Sources */,
 				C725610F1E6D692000AA8622 /* TweetDetailsCell.swift in Sources */,
+				C7F6C2301E6E188D00A2913B /* ComposeTweetViewController.swift in Sources */,
 				C7D4C1861E5D907200F4829D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

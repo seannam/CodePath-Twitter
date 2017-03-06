@@ -137,4 +137,14 @@ class TwitterClient: BDBOAuth1SessionManager {
             completion(error as Error?)
         })
     }
+    
+    func tweetStatus(status: String, params: NSDictionary?) {
+        post("/1.1/statuses/update.json?status=\(status)", parameters: params, progress: { (Progress) in
+            
+        }, success: { (URLSessionDataTask, Any) in
+            print("[DEBUG] Tweeting status: \(status)")
+        }) { (URLSessionDataTask, Error) in
+            print(Error)
+        }
+    }
 }
