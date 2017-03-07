@@ -33,7 +33,6 @@ class TweetsDetailsViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "ComposeTweetViewController")
         
         present(vc, animated: true, completion: nil)
-        
     }
 
     
@@ -75,15 +74,27 @@ class TweetsDetailsViewController: UIViewController {
         }
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ProfileViewSegue" {
+            //let cell = sender as! ProfileBodyCell
+            
+            //let indexPath = tableView.indexPath(for: cell)
+            let user = tweet.user
+            print("[DEBUG] TweetsDetailVC \(user?.name)")
+            
+            let profileVC = segue.destination as! ProfileViewController
+            profileVC.profileUser = user
+            
+        }
     }
-    */
+    
 
 }
 extension TweetsDetailsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -93,7 +104,7 @@ extension TweetsDetailsViewController: UITableViewDataSource, UITableViewDelegat
         
         cell.tweet = tweet
         
-        cell.retweetedByLabel.text = ""
+        //cell.retweetedByLabel.text = ""
         
         
         if tweet.retweeted {

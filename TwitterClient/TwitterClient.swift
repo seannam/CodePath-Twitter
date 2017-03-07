@@ -138,8 +138,18 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func tweetStatus(status: String, params: NSDictionary?) {
-        post("/1.1/statuses/update.json?status=\(status)", parameters: params, progress: { (Progress) in
+    func composeStatus(status: String, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+        let encodedTweetText = status.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        
+        post("1.1/statuses/update.json", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+            print("[DEBUG] Tweeting status: \(status)")
+            completion(nil)
+        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+            print(error?.localizedDescription)
+            completion(error as Error?)
+        })
+        
+        post("/1.1/statuses/update.json?status=\(encodedTweetText)", parameters: params, progress: { (Progress) in
             
         }, success: { (URLSessionDataTask, Any) in
             print("[DEBUG] Tweeting status: \(status)")
@@ -147,4 +157,5 @@ class TwitterClient: BDBOAuth1SessionManager {
             print(Error)
         }
     }
+    
 }

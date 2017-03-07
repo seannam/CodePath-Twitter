@@ -10,13 +10,18 @@ import UIKit
 
 class ComposeTweetViewController: UIViewController {
 
-    
     @IBOutlet weak var characterCountLabelAsButton: UIBarButtonItem!
+    @IBOutlet weak var tweetTextField: UITextField!
+    
+    let TWEETMAX = 140
+    var status: String = "testing"
     
     override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        super.viewDidLoad()
+        tweetTextField.becomeFirstResponder()
+        tweetTextField.addTarget(self, action: #selector(textFieldDidChange(tweetTextField:)), for: .editingChanged)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,10 +31,23 @@ class ComposeTweetViewController: UIViewController {
     
     
     @IBAction func onTweetButton(_ sender: Any) {
+        TwitterClient.sharedInstance?.composeStatus(status: status, params: nil, completion: { (error) in
+            print("[DEBUG] tweeted: \(self.status)")
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @IBAction func onCancelButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldDidChange(tweetTextField: UITextField) {
+        //var charCount: Int = 0
+        //var tweetCount = tweetTextField.text?.lengthOfBytes(using: String.Encoding)
+        
+        //charCount = MAXTWEET - tweetCount
+        
+        status = tweetTextField.text!
     }
     
     /*
