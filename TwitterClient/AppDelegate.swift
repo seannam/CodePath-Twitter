@@ -21,25 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             //print("There is a current user")
 
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nc = storyboard.instantiateViewController(withIdentifier: "TweetsNavController") as! UINavigationController
 
-//            let profileViewController = nc.topViewController as! ProfileViewController
-//            profileViewController.tabBarItem.title = "Profile"
-//            profileViewController.tabBarItem.image = UIImage(named: "profile-Icon")
-//            
-//            let homeTimelineViewController = nc.topViewController as! TweetsViewController
-//            homeTimelineViewController.tabBarItem.title = "Home"
-//            homeTimelineViewController.tabBarItem.image = UIImage(named: "home-Icon")
-//            
-//            let tabBarController = UITabBarController()
-//            tabBarController.viewControllers = [homeTimelineViewController, profileViewController]
-//            
-//            window?.rootViewController = tabBarController
-//            window?.makeKeyAndVisible()
             window?.rootViewController = nc
-            
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (Notification) -> Void in

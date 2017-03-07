@@ -138,24 +138,35 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func composeStatus(status: String, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+//    func composeStatus(status: String, params: NSDictionary?, completion: @escaping (_ error: Error?) -> ()) {
+//        let encodedTweetText = status.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        
+////        post("1.1/statuses/update.json?status=\(encodedTweetText)", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+////            print("[DEBUG] Tweeting status: \(status)")
+////            completion(nil)
+////        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+////            completion(error as Error?)
+////        })
+//        print("encodeTweet: \(encodedTweetText)")
+//        
+//        post("/1.1/statuses/update.json?status=\(encodedTweetText)", parameters: params, progress: { (Progress) in
+//        }, success: { (URLSessionDataTask, Any) in
+//            print("[DEBUG] Tweeting status: \(status)")
+//        }) { (URLSessionDataTask, Error) in
+//            print(Error)
+//        }
+//        
+//    }
+    func composeStatus(status: String, params: NSDictionary?, completion: @escaping (_ error: Error?) -> () ){
         let encodedTweetText = status.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         
-        post("1.1/statuses/update.json", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
-            print("[DEBUG] Tweeting status: \(status)")
+        post("1.1/statuses/update.json?status=\(encodedTweetText)", parameters: params, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+            print("tweeted: \(status)")
             completion(nil)
         }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
-            print(error?.localizedDescription)
+            print("Couldn't compose")
             completion(error as Error?)
-        })
-        
-        post("/1.1/statuses/update.json?status=\(encodedTweetText)", parameters: params, progress: { (Progress) in
-            
-        }, success: { (URLSessionDataTask, Any) in
-            print("[DEBUG] Tweeting status: \(status)")
-        }) { (URLSessionDataTask, Error) in
-            print(Error)
         }
+        )
     }
-    
 }

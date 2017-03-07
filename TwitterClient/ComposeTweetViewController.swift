@@ -31,10 +31,21 @@ class ComposeTweetViewController: UIViewController {
     
     
     @IBAction func onTweetButton(_ sender: Any) {
+        print("[DEBUG] tweeted: \(self.status)")
+        
         TwitterClient.sharedInstance?.composeStatus(status: status, params: nil, completion: { (error) in
-            print("[DEBUG] tweeted: \(self.status)")
             self.dismiss(animated: true, completion: nil)
         })
+        
+//        let encodedTweetText = status.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//        
+//        TwitterClient.sharedInstance?.post("1.1/statuses/update.json?status=\(encodedTweetText)", parameters: nil, success: { (operation: URLSessionDataTask!, response: Any?) -> Void in
+//            print("tweeted: \(encodedTweetText)")
+//            
+//        }, failure: { (operation: URLSessionDataTask?, error: Error?) -> Void in
+//            print("Couldn't compose")
+//            
+//        })
     }
     
     @IBAction func onCancelButton(_ sender: Any) {
