@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D42A318A3D9F709D197892F94E2A323B"
-               BuildableName = "Pods_TwitterClient.framework"
-               BlueprintName = "Pods-TwitterClient"
+               BlueprintIdentifier = "12DB515765EE4AA0FAC077A6C408964C"
+               BuildableName = "Pods_Birdhouse_TwitterClient.framework"
+               BlueprintName = "Pods-Birdhouse-TwitterClient"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D42A318A3D9F709D197892F94E2A323B"
-            BuildableName = "Pods_TwitterClient.framework"
-            BlueprintName = "Pods-TwitterClient"
+            BlueprintIdentifier = "12DB515765EE4AA0FAC077A6C408964C"
+            BuildableName = "Pods_Birdhouse_TwitterClient.framework"
+            BlueprintName = "Pods-Birdhouse-TwitterClient"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
